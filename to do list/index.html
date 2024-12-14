@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="to-do.css">
 </head>
 <body>
-    
+   
+    <div class="container">
+
+        <div class="todo-app">
+            <h2>To-Do List</h2>
+            <form action="">
+                <div class="row">
+                    <input type="text" id = "input-box" placeholder="Add your text">
+                    <button onclick="addTask()" type="submit">Add</button>
+                    <div class="select">
+                        <select name="todos" id="filter-todo" class="filter-todo">
+                            <option value="all">All</option>
+                            <option value="completed">Completed</option>
+                            <option value="incomplete">Incomplete</option>
+                        </select>
+                        
+                    </div>
+                </div>
+            </form>
+                  
+            <ul id = "list-container"></ul>
+            
+        </div>
+    </div>
+    <script src="to-do.js"></script>
 </body>
 </html>
