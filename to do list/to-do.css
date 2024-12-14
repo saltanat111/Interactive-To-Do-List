@@ -63,10 +63,10 @@ button {
     padding: 18px 30px 12px 50px;
     cursor: pointer;
     position: relative;
-    white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word; /* Break long words if needed */
-    overflow-wrap: break-word; /* Modern alternative to word-wrap */
-    max-width: 100%; /* Ensure it doesn't exceed the container width */
+    white-space: normal; 
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
  }
 
  ul li::before{
@@ -146,4 +146,27 @@ select {
 .select::hover::after {
     background: white;
     color: #e14343;
+}
+
+.edit-input {
+    border: 1px solid #ddd;
+    padding: 5px;
+    font-size: 16px;
+    width: 80%;
+    border-radius: 4px;
+}
+
+.edit-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #ef6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.edit-btn:hover {
+    background-color:#e85151;
 }
