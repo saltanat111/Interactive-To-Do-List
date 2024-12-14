@@ -12,6 +12,8 @@
     padding: 10px;
 }
 
+
+
 .todo-app{
     max-width: 700px;
     background: #fff;
@@ -57,14 +59,20 @@ button {
     border: 1.6px solid black;
 }
 
- ul li{
+li {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li{
     list-style: none;
     font-size: 17px;
     padding: 18px 30px 12px 50px;
     cursor: pointer;
     position: relative;
     white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word; /* Break long words if needed */
+    word-wrap: break-word; /*Break long words if needed*/
     overflow-wrap: break-word; /* Modern alternative to word-wrap */
     max-width: 100%; /* Ensure it doesn't exceed the container width */
  }
@@ -94,7 +102,7 @@ ul li.checked::before{
 ul li span {
     position: absolute;
     right: 0px;
-    top: 5px;
+    top: 12px;
     width: 40px;
     height: 40px;
     font-size: 22px;
@@ -154,12 +162,17 @@ select {
     font-size: 16px;
     width: 80%;
     border-radius: 4px;
+
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words if needed */
+    overflow-wrap: break-word; /* Modern alternative to word-wrap */
+    max-width: 100%;
 }
 
 .edit {
-    margin-left: 10px;
+    position: relative;
     padding: 5px 10px;
-    background-color: #4CAF50;
+    background-color: #e75757;
     color: white;
     border: none;
     border-radius: 5px;
@@ -168,12 +181,5 @@ select {
 }
 
 .edit:hover {
-    background-color: #45a049;
-}
-
-span {
-    margin-left: 10px;
-    color: red;
-    font-weight: bold;
-    cursor: pointer;
+    background-color: #e14343;
 }

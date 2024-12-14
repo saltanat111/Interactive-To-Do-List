@@ -10,9 +10,20 @@ function addTask(){
         let li = document.createElement("li");
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
+
+        let editBtn = document.createElement("button");
+        editBtn.innerText = "Edit";
+        editBtn.classList.add("edit");
+
         let span = document.createElement("span");
         span .innerHTML = "\u00d7";
+
+        li.appendChild(editBtn);
         li.appendChild(span);
+        li.insertBefore(editBtn, span);
+
+        listContainer.appendChild(li);
+
         saveLocalTodos(inputBox.value);
 
     }
@@ -131,3 +142,4 @@ function filterTasks(filter) {
         }
     });
 }
+
