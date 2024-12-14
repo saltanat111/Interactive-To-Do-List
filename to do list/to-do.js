@@ -20,15 +20,38 @@ function addTask(){
 }
 //delete task, complete task
 listContainer.addEventListener("click", function(e){
-                                if(e.target.tagName === "LI"){
-                                    e.target.classList.toggle("checked");
-                                    saveLocalTodos();
-                                }
-                                else if(e.target.tagName === "SPAN"){
-                                    e.target.parentElement.remove();
-                                    saveLocalTodos();
-                                }
-                            },false);
+            if(e.target.tagName === "LI"){
+                e.target.classList.toggle("checked");
+                saveLocalTodos();
+            }
+            else if(e.target.tagName === "SPAN"){
+                e.target.parentElement.remove();
+                saveLocalTodos();
+            }
+            else if (e.target.classList.contains("edit")) {
+
+                let li = e.target.parentElement;
+                let currentText = li.firstChild.textContent;
+        
+                let inputField = document.createElement("input");
+                inputField.type = "text";
+                inputField.value = currentText;
+                inputField.classList.add("edit-input");
+        
+                li.firstChild.replaceWith(inputField);
+                inputField.focus();
+        
+                inputField.addEventListener("blur", function () {
+                    saveEditedTodos(inputField, li);
+                });
+        
+                inputField.addEventListener("keypress", function (e) {
+                    if (e.key === "Enter") {
+                        saveEditedTodos(inputField, li);
+                    }
+                });
+            }
+        },false);
 
 function saveLocalTodos() {
     const todos = [];
@@ -41,6 +64,21 @@ function saveLocalTodos() {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
+
+function saveEditedTodos(inputField, li) {
+    let updatedText = inputField.value.trim();
+
+    if (updatedText !== "") {
+        let textNode = document.createTextNode(updatedText);
+        inputField.replaceWith(textNode);
+        saveLocalTodos();
+    } else {
+        alert("Task cannot be empty!");
+        inputField.focus();
+    }
+}
+
+
 function showTask() {
     const todos = JSON.parse(localStorage.getItem("todos")) || [];
     todos.forEach((todo) => {
@@ -50,6 +88,11 @@ function showTask() {
         if (todo.completed) {
             li.classList.add("checked");
         }
+
+        let editBtn = document.createElement("button");
+        editBtn.innerText = "Edit";
+        editBtn.classList.add("edit");
+        li.appendChild(editBtn);
 
         let span = document.createElement("span");
         span.innerHTML = "\u00d7";
