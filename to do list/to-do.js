@@ -73,14 +73,6 @@ function saveLocalTodos() {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-// function saveLocalTodos() {
-//     let todos = [];
-//     document.querySelectorAll("li").forEach(function (todo) {
-//         todos.push(todo.firstChild.textContent); // Save task text only
-//     });
-//     localStorage.setItem("todos", JSON.stringify(todos));
-// }
-
 function saveEditedTask(inputField, li) {
   let updatedText = inputField.value.trim();
 
