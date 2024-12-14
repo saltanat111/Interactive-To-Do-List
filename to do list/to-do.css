@@ -8,13 +8,12 @@
 .container{
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg,#153677,#4e085f);
+    background: linear-gradient(135deg,#78a1ee,#002140);
     padding: 10px;
 }
 
 .todo-app{
-    width: 100%;
-    max-width: 540px;
+    max-width: 700px;
     background: #fff;
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
@@ -22,53 +21,52 @@
 }
 
 .todo-app h2{
-    color: #002765;
-    display: flex;
-    align-items: center;
+    color: #032965;
     margin-bottom: 20px;
-}
-
-.toodo-app h2 img{
-    width: 30px;
-    margin-left: 10px;
 }
 
 .row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #edeef0;
+    align-items: center; 
+    /* background: #e0e8f8; */
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
 }
 
 input {
+    color: black;
     flex: 1;
-    border: none;
+    border: 1.6px solid black;
     outline: none;
-    background: transparent;
+    background: #dee4f0;
     padding: 10px;
+    height: 55px;
+    border-radius: 40px;
+
 }
 
 button {
     outline: none;
-    outline: none;
     padding: 16px 50px;
-    background: #ff5945;
+    background: #e14343;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+    border: 1.6px solid black;
 }
 
  ul li{
     list-style: none;
     font-size: 17px;
-    padding: 18px 8px 12px 50px;
-    user-select: none;
+    padding: 18px 30px 12px 50px;
     cursor: pointer;
     position: relative;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words if needed */
+    overflow-wrap: break-word; /* Modern alternative to word-wrap */
+    max-width: 100%; /* Ensure it doesn't exceed the container width */
  }
 
  ul li::before{
@@ -95,7 +93,7 @@ ul li.checked::before{
 
 ul li span {
     position: absolute;
-    right: 0;
+    right: 0px;
     top: 5px;
     width: 40px;
     height: 40px;
@@ -108,4 +106,44 @@ ul li span {
 
 ul li span:hover {
     background: #edeef0;
+}
+
+select {
+    /* appearance: none; */
+    outline: none;
+    /* border: none; */
+}
+
+.select {
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+}
+select {
+    color:#949494;
+    outline: none;
+    width: 10rem;
+    cursor: pointer;
+    padding: 1rem;
+    background-color: #dee4f0;
+    border: 1.6px solid #282525;
+    border-radius: 40px;
+    font-size: 14px;
+}
+.select::after {
+    content: "\25BC";
+    position: absolute;
+    background:#dc4949;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    border: 1.6px solid #282525;
+    border-radius: 45%;
+}
+
+.select::hover::after {
+    background: white;
+    color: #e14343;
 }
